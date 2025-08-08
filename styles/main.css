@@ -815,7 +815,7 @@ footer {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  z-index: 1000;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -959,4 +959,5 @@ footer {
 .dark-theme .notification-actions button:hover {
   background: var(--primary-container);
   color: var(--on-primary-container);
+
 }

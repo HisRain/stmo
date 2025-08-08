@@ -3,9 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    const welcomeNotification = document.getElementById('welcomeNotification');
-    const closeNotificationBtn = document.getElementById('closeNotification');
-    const dismissBtn = document.getElementById('dismissBtn');
 
     // 返回顶部按钮功能
     const backToTopBtn = document.getElementById('backToTop');
@@ -93,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 10000);
         }
     }
+    
     // 隐藏通知
     function hideNotification() {
         const welcomeNotification = document.getElementById('welcomeNotification');
@@ -103,38 +101,53 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 动画结束后移除通知元素
         setTimeout(() => {
-            welcomeNotification.remove();
+            if (welcomeNotification.parentNode) {
+                welcomeNotification.parentNode.removeChild(welcomeNotification);
+            }
         }, 500);
     }
     
     // 初始化显示通知
     setTimeout(() => {
         const isNewVisit = sessionStorage.getItem('visited') === null;
-        const notificationExists = document.getElementById('welcomeNotification');
+        const welcomeNotification = document.getElementById('welcomeNotification');
         
-        if (!notificationExists && isNewVisit) {
-            // 首次访问，修改欢迎消息
-            const notificationTitle = document.querySelector('.notification-title');
-            const notificationMessage = document.querySelector('.notification-message');
+        if (welcomeNotification) {
+            // 获取关闭按钮（必须在通知元素存在时获取）
+            const closeNotificationBtn = welcomeNotification.querySelector('#closeNotification');
+            const dismissBtn = welcomeNotification.querySelector('#dismissBtn');
             
-            notificationTitle.textContent = '欢迎光临！';
-            notificationMessage.textContent = '当前网站处于测试中！你可以关闭这个窗口，然后返回旧版网站。';
+            // 添加事件监听器
+            if (closeNotificationBtn) {
+                closeNotificationBtn.addEventListener('click', hideNotification);
+            }
             
-            // 标记为已访问
-            sessionStorage.setItem('visited', 'true');
+            if (dismissBtn) {
+                dismissBtn.addEventListener('click', hideNotification);
+            }
             
-            // 显示通知（首次访问不自动关闭）
-            showNotification(true);
-        } else if (!notificationExists) {
-            // 显示通知（非首次访问10秒后自动关闭）
-            showNotification(false);
+            if (isNewVisit) {
+                // 首次访问，修改欢迎消息
+                const notificationTitle = welcomeNotification.querySelector('.notification-title');
+                const notificationMessage = welcomeNotification.querySelector('.notification-message');
+                
+                if (notificationTitle) {
+                    notificationTitle.textContent = '欢迎光临！';
+                }
+                
+                if (notificationMessage) {
+                    notificationMessage.textContent = '当前网站处于测试中！你可以关闭这个窗口，然后返回旧版网站。';
+                }
+                
+                // 标记为已访问
+                sessionStorage.setItem('visited', 'true');
+                
+                // 显示通知（首次访问不自动关闭）
+                showNotification(true);
+            } else {
+                // 显示通知（非首次访问10秒后自动关闭）
+                showNotification(false);
+            }
         }
     }, 1500);
-    
-    // 关闭按钮事件
-    closeNotificationBtn.addEventListener('click', hideNotification);
-    
-    // 我知道了按钮事件
-    dismissBtn.addEventListener('click', hideNotification);
-
 });

@@ -962,4 +962,33 @@ footer {
   color: var(--on-primary-container);
 
 }
+/* 同意按钮特殊样式 */
+.agree-button {
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+    color: white !important;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.agree-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.agree-button .material-symbols-rounded {
+    font-size: 20px;
+}
+
+.dark-theme .agree-button {
+    background: linear-gradient(135deg, #388E3C 0%, #1B5E20 100%);
+}
+
 

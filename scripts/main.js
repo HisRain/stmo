@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 if (notificationMessage) {
-                    notificationMessage.textContent = '这是你的首次访问，当前网站处于测试中！你可以关闭这个窗口，然后返回旧版网站。';
+                    notificationMessage.textContent = '这是你的首次访问，当前网站处于试运行阶段！';
                 }
                 
                 // 标记为已访问
@@ -151,4 +151,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 1500);
 });
+
 

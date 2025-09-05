@@ -656,6 +656,15 @@ footer {
 }
 
 @media (max-width: 900px) {
+    .search-container {
+        display: none; /* 在小屏幕上隐藏搜索框 */
+    }
+    .theme-toggle {
+        display: none;
+    }
+    .logo-container {
+        display: none;
+    }
     .main-layout {
         grid-template-columns: 1fr;
     }
@@ -677,76 +686,6 @@ footer {
     
     .header-actions {
         justify-content: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .search-container {
-        display: none; /* 在小屏幕上隐藏搜索框 */
-    }
-    .theme-toggle {
-        display: none;
-    }
-    .header-actions {
-        gap: var(--spacing-xs);
-    }
-    
-    .hero {
-        padding: var(--spacing-xl) 0;
-    }
-    
-    .hero h1 {
-        font-size: 1.75rem;
-    }
-    
-    .section-title {
-        font-size: var(--text-xl);
-    }
-    
-    /* 调整移动设备上的页眉高度 */
-    :root {
-        --header-height: 60px;
-    }
-    
-    body {
-        padding-top: var(--header-height);
-    }
-    
-    header {
-        padding: 0 var(--spacing-md);
-    }
-    
-    .logo {
-        height: 45px;
-    }
-    
-    /* 在移动设备上隐藏搜索框 */
-    .search-container {
-        display: none;
-    }
-}
-
-@media (max-width: 600px) {
-    .blog-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    /* 进一步调整小屏幕设备上的页眉 */
-    :root {
-        --header-height: 55px;
-    }
-    
-    body {
-        padding-top: var(--header-height);
-    }
-    
-    .nav-links a {
-        padding: var(--spacing-xs) var(--spacing-sm);
-        font-size: var(--text-sm);
-    }
-    
-    .logo {
-        height: 40px;
     }
 }
 
@@ -1063,5 +1002,6 @@ footer {
 .dark-theme .agree-button {
     background: linear-gradient(135deg, #388E3C 0%, #1B5E20 100%);
 }
+
 
 

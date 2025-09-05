@@ -20,6 +20,21 @@ const CONFIG = {
 // ==================== 核心功能函数 ====================
 
 /**
+ * 获取相对于根目录的正确路径
+ */
+function getBasePath() {
+    // 获取当前页面的路径
+    const path = window.location.pathname;
+    
+    // 如果路径包含'/pages/'，说明在pages子目录中
+    if (path.includes('/pages/')) {
+        return '../'; // 返回上级目录
+    }
+    
+    return './'; // 默认在当前目录
+}
+
+/**
  * 初始化页面 - DOM加载完成后执行
  */
 function initPage() {
@@ -35,8 +50,10 @@ function initPage() {
  * 加载页眉和页脚组件
  */
 function loadHeaderAndFooter() {
+    const basePath = getBasePath();
+    
     // 加载页眉
-    fetch('header.html')
+    fetch(`${basePath}header.html`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -49,11 +66,12 @@ function loadHeaderAndFooter() {
         })
         .catch(error => {
             console.error('加载页眉失败:', error);
-            // 可以在这里添加备用方案，比如显示一个简单的导航栏
+            // 显示备用导航
+            showFallbackHeader();
         });
 
     // 加载页脚
-    fetch('footer.html')
+    fetch(`${basePath}footer.html`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -65,8 +83,78 @@ function loadHeaderAndFooter() {
         })
         .catch(error => {
             console.error('加载页脚失败:', error);
-            // 可以在这里添加备用方案
+            // 显示备用页脚
+            showFallbackFooter();
         });
+}
+
+/**
+ * 显示备用页眉（当加载失败时）
+ */
+function showFallbackHeader() {
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    if (headerPlaceholder) {
+        headerPlaceholder.innerHTML = `
+            <header>
+                <div class="header-container">
+                    <div class="logo-container">
+                        <img src="../assets/logo-l.png" alt="HKEMS-STMO" class="logo">
+                    </div>
+                    
+                    <nav class="nav-links">
+                        <a href="../index.html"><span class="material-symbols-rounded">home</span>首页</a>
+                        <a href="https://github.com/HKEMS-STMO/New-official-website/blob/main/README.md"><span class="material-symbols-rounded">person</span>关于</a>
+                        <a href="https://github.com/HKEMS-STMO-Webmasters"><span class="material-symbols-rounded">mail</span>联系</a>
+                    </nav>
+
+                    <div class="header-actions">
+                        <form class="search-container" action="https://www.bing.com/search" method="GET" target="_blank">
+                            <span class="material-symbols-rounded search-icon">search</span>
+                            <input id="search" type="search" name="q" required placeholder="必应搜索...">
+                        </form>
+
+                        <button class="theme-toggle" id="themeToggle">
+                            <span class="material-symbols-rounded" id="themeIcon">dark_mode</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+        `;
+        initHeader();
+    }
+}
+
+/**
+ * 显示备用页脚（当加载失败时）
+ */
+function showFallbackFooter() {
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    if (footerPlaceholder) {
+        footerPlaceholder.innerHTML = `
+            <footer>
+                <div class="footer-container">
+                    <div class="footer-col">
+                        <h3>HKEMS-STMO</h3>
+                        <p>海口实验中学科技社（科技配套组织）是由海口实验中学（以下简称我校）学生自发组织、由我校社团联合会、校团委等组织管理的科学技术类学生社团，是我校学子在实践中运用所学知识、探求新知、提升科技创新能力的校内活动平台。</p>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h3>快速链接</h3>
+                        <ul>
+                            <li><a href="#top"><span class="material-symbols-rounded">chevron_right</span>返回页首</a></li>
+                            <li><a href="https://hkems-stmo.top/"><span class="material-symbols-rounded">chevron_right</span>旧版网站</a></li>
+                            <li><a href="https://github.com/HKEMS-STMO/New-official-website/blob/main/README.md"><span class="material-symbols-rounded">chevron_right</span>关于我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    <p>© 2025 HKEMS-STMO | 基于 <a href="https://m3.material.io/" style="color:#d0bcff; text-decoration: none;">Material Design 3</a> 构建</p>
+                    <p>厚德、博学、明志、和谐、探索、进取、勤思、创新</p>
+                </div>
+            </footer>
+        `;
+    }
 }
 
 /**

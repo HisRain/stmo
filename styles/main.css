@@ -1,38 +1,38 @@
 /* Material Design 3 颜色变量 */
 :root {
     /* 主色系统 */
-    --primary: #6750A4;
+    --primary: #337ab7;
     --on-primary: #FFFFFF;
-    --primary-container: #EADDFF;
-    --on-primary-container: #21005D;
+    --primary-container: #D0E3F5;
+    --on-primary-container: #0A3D67;
     
     /* 辅助颜色 */
-    --secondary: #625B71;
+    --secondary: #5A6268;
     --on-secondary: #FFFFFF;
-    --secondary-container: #E8DEF8;
-    --on-secondary-container: #1D192B;
+    --secondary-container: #E2E6EA;
+    --on-secondary-container: #1F2326;
     
     /* 第三颜色 */
-    --tertiary: #7D5260;
+    --tertiary: #5C7C8A;
     --on-tertiary: #FFFFFF;
-    --tertiary-container: #FFD8E4;
-    --on-tertiary-container: #31111D;
+    --tertiary-container: #D6E4EB;
+    --on-tertiary-container: #1F2A30;
     
     /* 表面颜色 */
-    --surface: #FEF7FF;
-    --surface-dim: #DED8E1;
-    --surface-bright: #FEF7FF;
+    --surface: #F8FAFC;
+    --surface-dim: #DEE2E6;
+    --surface-bright: #F8FAFC;
     --surface-container-lowest: #FFFFFF;
-    --surface-container: #F2ECF4;
-    --surface-container-high: #ECE6EF;
+    --surface-container: #EDF2F7;
+    --surface-container-high: #E2E8F0;
     
     /* 文本颜色 */
-    --on-surface: #1D1B20;
-    --on-surface-variant: #49454F;
+    --on-surface: #1A202C;
+    --on-surface-variant: #4A5568;
     
     /* 轮廓和阴影 */
-    --outline: #79747E;
-    --outline-variant: #CAC4D0;
+    --outline: #A0AEC0;
+    --outline-variant: #CBD5E0;
     --shadow: #000000;
     
     /* 间距系统 */
@@ -65,37 +65,36 @@
     --text-heading: 2rem;
 }
 
-/* 暗色主题  */
+/* 暗色主题 */
 .dark-theme {
-    --primary: #D0BCFF;
-    --on-primary: #381E72;
-    --primary-container: #4F378B;
-    --on-primary-container: #EADDFF;
+    --primary: #6BA5D9;
+    --on-primary: #0A3D67;
+    --primary-container: #2C5282;
+    --on-primary-container: #D0E3F5;
     
-    --secondary: #CCC2DC;
-    --on-secondary: #332D41;
-    --secondary-container: #4A4458;
-    --on-secondary-container: #E8DEF8;
+    --secondary: #A0AEC0;
+    --on-secondary: #2D3748;
+    --secondary-container: #4A5568;
+    --on-secondary-container: #E2E6EA;
     
-    --tertiary: #EFB8C8;
-    --on-tertiary: #492532;
-    --tertiary-container: #633B48;
-    --on-tertiary-container: #FFD8E4;
+    --tertiary: #90B4C8;
+    --on-tertiary: #2D3748;
+    --tertiary-container: #475F6E;
+    --on-tertiary-container: #D6E4EB;
     
-    --surface: #141218;
-    --surface-dim: #141218;
-    --surface-container-lowest: #0F0D13;
-    --surface-container: #211F26;
-    --surface-container-high: #2B2930;
+    --surface: #1A202C;
+    --surface-dim: #1A202C;
+    --surface-container-lowest: #0F141C;
+    --surface-container: #2D3748;
+    --surface-container-high: #374151;
     
-    --on-surface: #E6E1E5;
-    --on-surface-variant: #CAC4D0;
+    --on-surface: #E2E8F0;
+    --on-surface-variant: #CBD5E0;
     
-    --outline: #938F99;
-    --outline-variant: #49454F;
+    --outline: #718096;
+    --outline-variant: #4A5568;
 }
 
-/* 基础样式 */
 * {
     margin: 0;
     padding: 0;
@@ -809,8 +808,8 @@ footer {
 .related-articles {
     margin-top: var(--spacing-xl);
 }
-/* 添加在 CSS 文件末尾 */
-/* 右下角通知容器 */
+
+/* 通知系统 */
 .notification-container {
   position: fixed;
   bottom: 24px;
@@ -822,10 +821,9 @@ footer {
   align-items: flex-end;
 }
 
-/* 通知卡片样式 */
 .notification {
-  background: var(--md-sys-color-surface, #FFFBFE);
-  color: var(--md-sys-color-on-surface, #1C1B1F);
+  background: var(--surface);
+  color: var(--on-surface);
   border-radius: 12px;
   padding: 16px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 
@@ -837,7 +835,7 @@ footer {
   opacity: 0;
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.4, 1), 
               opacity 0.5s ease;
-  border-left: 4px solid var(--md-sys-color-primary, #6750A4);
+  border-left: 4px solid var(--primary);
 }
 
 .notification.show {
@@ -852,7 +850,7 @@ footer {
 }
 
 .notification-icon {
-  background: linear-gradient(135deg, #D0BCFF 0%, #6750A4 100%);
+  background: linear-gradient(135deg, #6BA5D9 0%, #337ab7 100%);
   color: white;
   width: 40px;
   height: 40px;
@@ -873,19 +871,19 @@ footer {
   font-weight: 500;
   font-size: 16px;
   margin-bottom: 4px;
-  color: var(--md-sys-color-primary, #6750A4);
+  color: var(--primary);
 }
 
 .notification-message {
   font-size: 14px;
-  color: var(--md-sys-color-on-surface-variant, #49454F);
+  color: var(--on-surface-variant);
   line-height: 1.5;
 }
 
 .notification-close {
   background: transparent;
   border: none;
-  color: var(--md-sys-color-on-surface, #1C1B1F);
+  color: var(--on-surface);
   cursor: pointer;
   margin-left: 12px;
   width: 24px;
@@ -901,7 +899,6 @@ footer {
   background: rgba(0, 0, 0, 0.1);
 }
 
-/* 通知动作按钮样式 */
 .notification-actions {
   display: flex;
   gap: 8px;
@@ -909,7 +906,7 @@ footer {
 }
 
 .notification-actions button {
-  background: var(--md-sys-color-surface-variant, #E7E0EC);
+  background: var(--surface-container);
   border: none;
   border-radius: 20px;
   padding: 6px 12px;
@@ -919,7 +916,7 @@ footer {
 }
 
 .notification-actions button:hover {
-  background: var(--md-sys-color-primary-container, #EADDFF);
+  background: var(--primary-container);
 }
 
 /* 响应式设计 */
@@ -929,7 +926,7 @@ footer {
   }
 }
 
-/* 通知面板的夜间模式适配 */
+/* 暗色主题适配 */
 .dark-theme .notification {
   background: var(--surface-container-high);
   border-left-color: var(--primary);
@@ -960,8 +957,8 @@ footer {
 .dark-theme .notification-actions button:hover {
   background: var(--primary-container);
   color: var(--on-primary-container);
-
 }
+
 /* 同意按钮特殊样式 */
 .agree-button {
     background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
@@ -990,5 +987,3 @@ footer {
 .dark-theme .agree-button {
     background: linear-gradient(135deg, #388E3C 0%, #1B5E20 100%);
 }
-
-

@@ -1,4 +1,4 @@
-/* Material Design 3 */
+/* Material Design 3 颜色变量 - 天蓝色主题 */
 :root {
     /* 主色系统 */
     --primary: #337ab7;
@@ -64,8 +64,8 @@
     --text-xxl: 1.5rem;
     --text-heading: 2rem;
     
-    /* 页眉高度 - 新增变量 */
-    --header-height: 70px;
+    /* 页眉高度 - 调整为更紧凑的布局 */
+    --header-height: 65px;
 }
 
 /* 暗色主题 */
@@ -120,7 +120,7 @@ body {
 /* 头部样式 - 修改为固定定位 */
 header {
     background-color: var(--surface-container);
-    padding: var(--spacing-sm) var(--spacing-lg);
+    padding: 0 var(--spacing-lg);
     position: fixed;
     top: 0;
     left: 0;
@@ -138,7 +138,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* 防止元素换行 */
     gap: var(--spacing-md);
     width: 100%;
 }
@@ -146,17 +146,19 @@ header {
 .logo-container {
     display: flex;
     align-items: center;
+    flex-shrink: 0; /* 防止logo被压缩 */
 }
 
 .logo {
-    height: 40px;
-    max-width: 100%;
+    height: 50px; /* 恢复原始logo大小 */
+    width: auto; /* 保持原始宽高比 */
     object-fit: contain;
 }
 
 .nav-links {
     display: flex;
     gap: var(--spacing-xs);
+    flex-shrink: 0; /* 防止导航链接被压缩 */
 }
 
 .nav-links a {
@@ -170,6 +172,7 @@ header {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
+    white-space: nowrap; /* 防止文本换行 */
 }
 
 .nav-links a:hover {
@@ -186,6 +189,7 @@ header {
     display: flex;
     gap: var(--spacing-sm);
     align-items: center;
+    flex-shrink: 0; /* 防止操作区域被压缩 */
 }
 
 .theme-toggle {
@@ -210,6 +214,8 @@ header {
 
 .search-container {
     position: relative;
+    flex-shrink: 1; /* 允许搜索框适当收缩 */
+    min-width: 180px; /* 设置最小宽度 */
 }
 
 .search-container input {
@@ -218,7 +224,7 @@ header {
     border: 1px solid var(--outline);
     background: var(--surface-container-high);
     color: var(--on-surface);
-    width: 200px;
+    width: 100%;
     transition: var(--transition);
     font-size: var(--text-md);
 }
@@ -680,25 +686,22 @@ footer {
     }
     
     header {
-        padding: var(--spacing-xs) var(--spacing-md);
+        padding: 0 var(--spacing-md);
     }
     
     .logo {
-        height: 35px;
+        height: 45px;
+    }
+    
+    /* 在移动设备上隐藏搜索框 */
+    .search-container {
+        display: none;
     }
 }
 
 @media (max-width: 600px) {
     .blog-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .search-container input {
-        width: 160px;
-    }
-    
-    .search-container input:focus {
-        width: 180px;
     }
     
     /* 进一步调整小屏幕设备上的页眉 */
@@ -713,6 +716,10 @@ footer {
     .nav-links a {
         padding: var(--spacing-xs) var(--spacing-sm);
         font-size: var(--text-sm);
+    }
+    
+    .logo {
+        height: 40px;
     }
 }
 
@@ -1019,7 +1026,7 @@ footer {
 
 .agree-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 6px极16px rgba(0,0,0,0.2);
 }
 
 .agree-button .material-symbols-rounded {

@@ -684,7 +684,9 @@ footer {
     .search-container {
         display: none; /* 在小屏幕上隐藏搜索框 */
     }
-    
+    .theme-toggle {
+        display: none;
+    }
     .header-actions {
         gap: var(--spacing-xs);
     }
@@ -1061,4 +1063,5 @@ footer {
 .dark-theme .agree-button {
     background: linear-gradient(135deg, #388E3C 0%, #1B5E20 100%);
 }
+
 

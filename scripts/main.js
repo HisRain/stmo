@@ -150,7 +150,8 @@ function showFallbackFooter() {
                 </div>
                 
                 <div class="copyright">
-                    <p>© 2025 HKEMS-STMO | 基于 <a href="https://m3.material.io/" style="color:#d0bcff; text-decoration: none;">Material Design 3</a> 构建 | 由 <a href="https://netlify.com/" style="color:#32e6e2; text-decoration: none;">Netlify</a> 驱动</p>
+                    <p>© 2025 HKEMS-STMO</p>
+                    <p>基于 <a href="https://m3.material.io/" style="color:#d0bcff; text-decoration: none;">Material Design 3</a> 构建 | 由 <a href="https://netlify.com/" style="color:#32e6e2; text-decoration: none;">Netlify</a> 驱动</p>
                     <p>厚德、博学、明志、和谐、探索、进取、勤思、创新</p>
                 </div>
             </footer>
@@ -428,3 +429,4 @@ if ('performance' in window) {
     });
 
 }
+

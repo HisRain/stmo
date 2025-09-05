@@ -138,7 +138,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap; /* 将 wrap 改为 nowrap */
+    flex-wrap: nowrap;
     gap: var(--spacing-md);
     width: 100%;
 }
@@ -158,9 +158,10 @@ header {
 .nav-links {
     display: flex;
     gap: var(--spacing-xs);
-    flex-shrink: 1; /* 添加这行 */
-    min-width: 0; /* 添加这行，允许内容收缩 */
+    flex-shrink: 1;
+    min-width: 0;
     overflow: hidden;
+    flex-wrap: nowrap;
 }
 
 .nav-links a {
@@ -216,8 +217,9 @@ header {
 
 .search-container {
     position: relative;
-    flex-shrink: 1; /* 允许搜索框适当收缩 */
-    min-width: 150px; /* 设置最小宽度 */
+    flex-shrink: 1;
+    min-width: 150px;
+    max-width: 200px; /* 添加最大宽度限制 */
 }
 
 .search-container input {
@@ -640,30 +642,20 @@ footer {
 }
 
 /* 响应式设计 */
-@media (max-width: 1024px) {
-    .header-container {
-        gap: var(--spacing-sm);
+/* 更新媒体查询 - 在更早的分辨率下隐藏搜索框 */
+@media (max-width: 950px) {
+    .search-container {
+        display: none;
     }
     
+    /* 调整导航链接间距以适应更小的空间 */
     .nav-links a {
         padding: var(--spacing-xs) var(--spacing-sm);
         font-size: var(--text-sm);
     }
-    
-    .search-container input {
-        width: 150px;
-    }
 }
 
 @media (max-width: 900px) {
-    .main-layout {
-        grid-template-columns: 1fr;
-    }
-    
-    .sidebar {
-        position: static;
-    }
-    
     .header-container {
         flex-direction: column;
         align-items: stretch;
@@ -681,26 +673,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .search-container {
-        display: none; /* 在小屏幕上隐藏搜索框 */
-    }
-    
-    .header-actions {
-        gap: var(--spacing-xs);
-    }
-    
-    .hero {
-        padding: var(--spacing-xl) 0;
-    }
-    
-    .hero h1 {
-        font-size: 1.75rem;
-    }
-    
-    .section-title {
-        font-size: var(--text-xl);
-    }
-    
     /* 调整移动设备上的页眉高度 */
     :root {
         --header-height: 60px;
@@ -717,18 +689,9 @@ footer {
     .logo {
         height: 45px;
     }
-    
-    /* 在移动设备上隐藏搜索框 */
-    .search-container {
-        display: none;
-    }
 }
 
 @media (max-width: 600px) {
-    .blog-grid {
-        grid-template-columns: 1fr;
-    }
-    
     /* 进一步调整小屏幕设备上的页眉 */
     :root {
         --header-height: 55px;
@@ -1061,4 +1024,5 @@ footer {
 .dark-theme .agree-button {
     background: linear-gradient(135deg, #388E3C 0%, #1B5E20 100%);
 }
+
 

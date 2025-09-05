@@ -138,10 +138,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* 将 wrap 改为 nowrap */
     gap: var(--spacing-md);
     width: 100%;
-    position: relative;
 }
 
 .logo-container {
@@ -159,10 +158,9 @@ header {
 .nav-links {
     display: flex;
     gap: var(--spacing-xs);
-    flex-shrink: 1;
-    min-width: 0;
+    flex-shrink: 1; /* 添加这行 */
+    min-width: 0; /* 添加这行，允许内容收缩 */
     overflow: hidden;
-    flex-wrap: nowrap;
 }
 
 .nav-links a {
@@ -197,10 +195,7 @@ header {
 }
 
 .theme-toggle {
-    position: fixed; 
-    top: var(--spacing-md);
-    right: var(--spacing-md);
-    background: var(--surface-container-high);
+    background: none;
     border: none;
     color: var(--on-surface);
     cursor: pointer;
@@ -212,21 +207,17 @@ header {
     justify-content: center;
     width: 40px;
     height: 40px;
-    z-index: 1001; /* 确保在最上层 */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .theme-toggle:hover {
     background-color: var(--primary-container);
     color: var(--on-primary-container);
-    transform: scale(1.1);
 }
 
 .search-container {
     position: relative;
-    flex-shrink: 1;
-    min-width: 150px;
-    max-width: 200px; /* 添加最大宽度限制 */
+    flex-shrink: 1; /* 允许搜索框适当收缩 */
+    min-width: 150px; /* 设置最小宽度 */
 }
 
 .search-container input {
@@ -664,12 +655,6 @@ footer {
     }
 }
 
-@media (max-width: 950px) {
-    .search-container {
-        display: none;
-    }
-}
-
 @media (max-width: 900px) {
     .main-layout {
         grid-template-columns: 1fr;
@@ -696,11 +681,8 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .theme-toggle {
-        top: var(--spacing-sm);
-        right: var(--spacing-sm);
-        width: 36px;
-        height: 36px;
+    .search-container {
+        display: none; /* 在小屏幕上隐藏搜索框 */
     }
     
     .header-actions {
@@ -735,6 +717,11 @@ footer {
     .logo {
         height: 45px;
     }
+    
+    /* 在移动设备上隐藏搜索框 */
+    .search-container {
+        display: none;
+    }
 }
 
 @media (max-width: 600px) {
@@ -758,13 +745,6 @@ footer {
     
     .logo {
         height: 40px;
-    }
-    
-    .theme-toggle {
-        top: 10px;
-        right: 10px;
-        width: 32px;
-        height: 32px;
     }
 }
 
@@ -1081,6 +1061,4 @@ footer {
 .dark-theme .agree-button {
     background: linear-gradient(135deg, #388E3C 0%, #1B5E20 100%);
 }
-
-
 

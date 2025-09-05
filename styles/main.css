@@ -141,6 +141,7 @@ header {
     flex-wrap: nowrap;
     gap: var(--spacing-md);
     width: 100%;
+    position: relative;
 }
 
 .logo-container {
@@ -196,7 +197,10 @@ header {
 }
 
 .theme-toggle {
-    background: none;
+    position: fixed; 
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: var(--surface-container-high);
     border: none;
     color: var(--on-surface);
     cursor: pointer;
@@ -208,11 +212,14 @@ header {
     justify-content: center;
     width: 40px;
     height: 40px;
+    z-index: 1001; /* 确保在最上层 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .theme-toggle:hover {
     background-color: var(--primary-container);
     color: var(--on-primary-container);
+    transform: scale(1.1);
 }
 
 .search-container {
@@ -642,20 +649,36 @@ footer {
 }
 
 /* 响应式设计 */
-/* 更新媒体查询 - 在更早的分辨率下隐藏搜索框 */
-@media (max-width: 950px) {
-    .search-container {
-        display: none;
+@media (max-width: 1024px) {
+    .header-container {
+        gap: var(--spacing-sm);
     }
     
-    /* 调整导航链接间距以适应更小的空间 */
     .nav-links a {
         padding: var(--spacing-xs) var(--spacing-sm);
         font-size: var(--text-sm);
     }
+    
+    .search-container input {
+        width: 150px;
+    }
+}
+
+@media (max-width: 950px) {
+    .search-container {
+        display: none;
+    }
 }
 
 @media (max-width: 900px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        position: static;
+    }
+    
     .header-container {
         flex-direction: column;
         align-items: stretch;
@@ -673,6 +696,29 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .theme-toggle {
+        top: var(--spacing-sm);
+        right: var(--spacing-sm);
+        width: 36px;
+        height: 36px;
+    }
+    
+    .header-actions {
+        gap: var(--spacing-xs);
+    }
+    
+    .hero {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .section-title {
+        font-size: var(--text-xl);
+    }
+    
     /* 调整移动设备上的页眉高度 */
     :root {
         --header-height: 60px;
@@ -692,6 +738,10 @@ footer {
 }
 
 @media (max-width: 600px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
     /* 进一步调整小屏幕设备上的页眉 */
     :root {
         --header-height: 55px;
@@ -708,6 +758,13 @@ footer {
     
     .logo {
         height: 40px;
+    }
+    
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
     }
 }
 
@@ -1024,5 +1081,6 @@ footer {
 .dark-theme .agree-button {
     background: linear-gradient(135deg, #388E3C 0%, #1B5E20 100%);
 }
+
 
 

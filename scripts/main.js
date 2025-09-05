@@ -106,14 +106,7 @@ function showFallbackHeader() {
                         <a href="/index.html"><span class="material-symbols-rounded">home</span>首页</a>
                         <a href="https://github.com/HKEMS-STMO/New-official-website/blob/main/README.md"><span class="material-symbols-rounded">person</span>关于</a>
                         <a href="https://github.com/HKEMS-STMO-Webmasters"><span class="material-symbols-rounded">mail</span>联系</a>
-                    </nav>
-
-                    <div class="header-actions">
-                        <form class="search-container" action="https://www.bing.com/search" method="GET" target="_blank">
-                            <span class="material-symbols-rounded search-icon">search</span>
-                            <input id="search" type="search" name="q" required placeholder="必应搜索...">
-                        </form>
-
+                    
                         <button class="theme-toggle" id="themeToggle">
                             <span class="material-symbols-rounded" id="themeIcon">dark_mode</span>
                         </button>
@@ -429,4 +422,5 @@ if ('performance' in window) {
     });
 
 }
+
 

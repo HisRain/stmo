@@ -98,11 +98,12 @@ function showFallbackHeader() {
             <header>
                 <div class="header-container">
                     <div class="logo-container">
-                        <img src="../assets/logo-l.png" alt="HKEMS-STMO" class="logo">
+                        <!-- 使用绝对路径引用Logo -->
+                        <img src="/assets/logo-l.png" alt="HKEMS-STMO" class="logo">
                     </div>
                     
                     <nav class="nav-links">
-                        <a href="../index.html"><span class="material-symbols-rounded">home</span>首页</a>
+                        <a href="/index.html"><span class="material-symbols-rounded">home</span>首页</a>
                         <a href="https://github.com/HKEMS-STMO/New-official-website/blob/main/README.md"><span class="material-symbols-rounded">person</span>关于</a>
                         <a href="https://github.com/HKEMS-STMO-Webmasters"><span class="material-symbols-rounded">mail</span>联系</a>
                     </nav>

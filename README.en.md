@@ -15,5 +15,5 @@ This is free software: you are free to change and redistribute it under the term
 - 📛 No requirements.
 - ❌ No warranties.
 
-In case of any discrepancies, the Chinese version shall prevail.
-See the full license in the [LICENSE](LICENSE) file.
+In case of any discrepancies, the Chinese version shall prevail.  
+See the full license in the [LICENSE](LICENSE) file.  

@@ -1,4 +1,4 @@
-/* Material Design 3 颜色变量 - 天蓝色主题 */
+/* Material Design 3 */
 :root {
     /* 主色系统 */
     --primary: #337ab7;
@@ -138,7 +138,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap; /* 防止元素换行 */
+    flex-wrap: nowrap; /* 将 wrap 改为 nowrap */
     gap: var(--spacing-md);
     width: 100%;
 }
@@ -158,7 +158,9 @@ header {
 .nav-links {
     display: flex;
     gap: var(--spacing-xs);
-    flex-shrink: 0; /* 防止导航链接被压缩 */
+    flex-shrink: 1; /* 添加这行 */
+    min-width: 0; /* 添加这行，允许内容收缩 */
+    overflow: hidden;
 }
 
 .nav-links a {
@@ -215,7 +217,7 @@ header {
 .search-container {
     position: relative;
     flex-shrink: 1; /* 允许搜索框适当收缩 */
-    min-width: 180px; /* 设置最小宽度 */
+    min-width: 150px; /* 设置最小宽度 */
 }
 
 .search-container input {
@@ -638,6 +640,21 @@ footer {
 }
 
 /* 响应式设计 */
+@media (max-width: 1024px) {
+    .header-container {
+        gap: var(--spacing-sm);
+    }
+    
+    .nav-links a {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--text-sm);
+    }
+    
+    .search-container input {
+        width: 150px;
+    }
+}
+
 @media (max-width: 900px) {
     .main-layout {
         grid-template-columns: 1fr;
@@ -664,6 +681,14 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .search-container {
+        display: none; /* 在小屏幕上隐藏搜索框 */
+    }
+    
+    .header-actions {
+        gap: var(--spacing-xs);
+    }
+    
     .hero {
         padding: var(--spacing-xl) 0;
     }
@@ -1036,3 +1061,4 @@ footer {
 .dark-theme .agree-button {
     background: linear-gradient(135deg, #388E3C 0%, #1B5E20 100%);
 }
+

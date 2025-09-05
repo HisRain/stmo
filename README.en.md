@@ -1,17 +1,19 @@
+## About Us
+See [About Us](https://github.com/HKEMS-STMO/New-official-website/blob/main/README.md "About Us") for more information.
 
-## If you find me, take over the source code
-Fun fact: You can use the source code of this site as much as you like  
-此README.md具有[中文](README.md)版本。
+Fun fact: Feel free to use the source code of this site in any way you like.  
+This README is also available in [Chinese](README.md).
+
 ## License
-Copyright © 2025 HKEMS-STMO.  
-This is free software: you are free to change and redistribute it under the terms of the **WTFPL**.  
+Copyright © 2025 HKEMS-STMO.
+This is free software: you are free to change and redistribute it under the terms of the [**WTFPL**](http://www.wtfpl.net/) license.
 
 [![WTFPL License](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/)
 
-**Summary**:  
-- 🚫 No restrictions  
-- 📛 No requirements  
-- ❌ No warranties  
+**Summary**:
+- 🚫 No restrictions.
+- 📛 No requirements.
+- ❌ No warranties.
 
-If there is a conflict with the Chinese version, please refer to the Chinese version  
-See full license: [LICENSE](LICENSE) file.
+In case of any discrepancies, the Chinese version shall prevail.
+See the full license in the [LICENSE](LICENSE) file.

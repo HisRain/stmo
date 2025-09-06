@@ -922,12 +922,13 @@ footer {
 }
 
 /* 响应式设计 */
+/*
 @media (max-width: 768px) {
   .notification {
     max-width: calc(100vw - 48px);
   }
 }
-
+*/
 /* 暗色主题适配 */
 .dark-theme .notification {
   background: var(--surface-container-high);
@@ -989,6 +990,7 @@ footer {
 .dark-theme .agree-button {
     background: linear-gradient(135deg, #388E3C 0%, #1B5E20 100%);
 }
+
 
 
 

@@ -644,16 +644,6 @@ footer {
     .header-container {
         gap: var(--spacing-sm);
     }
-    
-    .nav-links a {
-        padding: var(--spacing-xs) var(--spacing-sm);
-        font-size: var(--text-sm);
-    }
-    
-    .search-container input {
-        width: 150px;
-    }
-}
 
 @media (max-width: 900px) {
     .search-container {
@@ -1002,6 +992,7 @@ footer {
 .dark-theme .agree-button {
     background: linear-gradient(135deg, #388E3C 0%, #1B5E20 100%);
 }
+
 
 
 

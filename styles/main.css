@@ -666,6 +666,10 @@ footer {
     .nav-links {
         justify-content: center;
     }
+
+    .header-container {
+        text-align: center;
+    }
     
     .header-actions {
         justify-content: center;
@@ -985,6 +989,7 @@ footer {
 .dark-theme .agree-button {
     background: linear-gradient(135deg, #388E3C 0%, #1B5E20 100%);
 }
+
 
 
 

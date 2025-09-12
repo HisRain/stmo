@@ -1,6 +1,5 @@
 /**
  * 海口实验中学科技社 - 主脚本文件
- * 版本：1.0
  * 最后更新：2025年
  */
 
@@ -271,6 +270,30 @@ function initTags() {
     });
 }
 
+// ==================== 浏览器内核检测 ====================
+function detectIE() {
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf('MSIE ');
+    var trident = ua.indexOf('Trident/');
+    var edge = ua.indexOf('Edge/');
+    
+    // 检测MSIE（IE 10及更早版本）或Trident（IE 11）或旧版Edge
+    return (msie > 0 || trident > 0 || edge > 0);
+}
+
+// 页面加载时执行检测
+document.addEventListener('DOMContentLoaded', function() {
+    if (detectIE()) {
+        // 如果是IE浏览器，跳转到DeepSeek官网
+        window.location.replace("https://old.hkems-stmo.top");
+    }
+});
+
+// 也可以立即执行检测（不等待DOM加载完成）
+if (detectIE()) {
+    window.location.replace("https://old.hkems-stmo.top");
+}
+
 // ==================== 通知系统 ====================
 
 /**
@@ -422,5 +445,6 @@ if ('performance' in window) {
     });
 
 }
+
 
 

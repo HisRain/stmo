@@ -13,35 +13,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <!--Microsoft clarity-->
-    <!-- 官号 -->
-    <script type="text/javascript">
-        (function (c, l, a, r, i, t, y) {
-            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "f4serx3lgw");
-    </script>
-    <!-- 测试账号 正式上线删除 -->
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "sritirjabx");
-    </script>
-    <!--Microsoft clarity-->
-
-    <!--Google analytics-->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YY3SD8KDP7"></script>
+    <!-- 检测IE浏览器 -->
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-YY3SD8KDP7');
+        function detectIE() {
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf('MSIE ');
+            var trident = ua.indexOf('Trident/');
+            var edge = ua.indexOf('Edge/');
+            
+            return (msie > 0 || trident > 0 || edge > 0);
+        }
+        
+        if (detectIE()) {
+            window.location.replace("https://old.hkems-stmo.top");
+        }
     </script>
-    <!--Google analytics-->
 </head>
 <body id="top">
 
@@ -194,4 +180,5 @@
 
 <script src="scripts/main.js"></script>
 </body>
+
 </html>

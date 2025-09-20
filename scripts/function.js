@@ -1,16 +1,16 @@
 /*公共引用*/
 $(function () {
-  $(".header").load("/function/header.html");
-  $(".footer").load("/function/footer.html");
-  $(".talk").load("/function/talk.html");
+  $(".header").load("/header.html");
+  $(".footer").load("/footer.html");
+  /* $(".talk").load("/talk.html"); */
 });
 /*-公共引用-*/
 
 
-/*像素检测*/
+/*像素检测
 if (screen.width < 300)
   window.location.href = "/function/toonarrow.html";
-/*-像素检测-*/
+ -像素检测- */
 
 
 /*ie判断*/

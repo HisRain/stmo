@@ -358,7 +358,7 @@ function customizeFirstVisitNotification() {
     }
     
     if (notificationMessage) {
-        notificationMessage.textContent = '这是你的首次访问，当前网站处于试运行阶段！';
+        notificationMessage.textContent = '这是你的首次访问，欢迎访问海口实验中学科技社！';
     }
 }
 
@@ -421,6 +421,7 @@ if ('performance' in window) {
     });
 
 }
+
 
 
 

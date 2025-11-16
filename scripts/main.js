@@ -362,6 +362,70 @@ function customizeFirstVisitNotification() {
     }
 }
 
+// 隐私政策提示功能
+function initPrivacyNotification() {
+    const privacyNotification = document.getElementById('privacyNotification');
+    const privacyAgree = document.getElementById('privacyAgree');
+    const privacyClose = document.getElementById('privacyClose');
+    
+    // 如果没有找到元素，直接返回
+    if (!privacyNotification || !privacyAgree || !privacyClose) {
+        return;
+    }
+    
+    // 检查用户是否已经同意隐私政策
+    const privacyAccepted = localStorage.getItem('privacyPolicyAccepted');
+    const privacyVersion = localStorage.getItem('privacyPolicyVersion');
+    const currentPrivacyVersion = '1.0'; // 当前隐私政策版本号
+    
+    // 如果用户没有同意，或者版本号不匹配，显示提示
+    if (!privacyAccepted || privacyVersion !== currentPrivacyVersion) {
+        // 显示隐私政策提示
+        setTimeout(() => {
+            privacyNotification.classList.add('show');
+            // 调整body的padding-top以避免内容被遮挡
+            document.body.style.paddingTop = `calc(var(--header-height) + ${privacyNotification.offsetHeight}px)`;
+        }, 1000);
+    }
+    
+    // 同意按钮点击事件
+    privacyAgree.addEventListener('click', function() {
+        localStorage.setItem('privacyPolicyAccepted', 'true');
+        localStorage.setItem('privacyPolicyVersion', currentPrivacyVersion);
+        hidePrivacyNotification();
+    });
+    
+    // 关闭按钮点击事件
+    privacyClose.addEventListener('click', function() {
+        hidePrivacyNotification();
+    });
+    
+    function hidePrivacyNotification() {
+        privacyNotification.classList.remove('show');
+        
+        // 恢复body的padding-top
+        setTimeout(() => {
+            document.body.style.paddingTop = '';
+        }, 300);
+        
+        // 添加平滑消失动画
+        setTimeout(() => {
+            privacyNotification.style.display = 'none';
+        }, 300);
+    }
+}
+
+// 在DOM加载完成后初始化
+document.addEventListener('DOMContentLoaded', function() {
+    initPrivacyNotification();
+});
+
+// 如果DOM已经加载完成，直接初始化
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPrivacyNotification);
+} else {
+    initPrivacyNotification();
+}
 // ==================== 工具函数 ====================
 
 /**
@@ -421,6 +485,7 @@ if ('performance' in window) {
     });
 
 }
+
 
 
 

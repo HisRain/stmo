@@ -779,7 +779,7 @@ body.privacy-notification-visible {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .privacy-notification-content {
+    .privacy-notification-content {
         flex-direction: column;
         align-items: flex-start;
         gap: var(--spacing-sm);
@@ -798,16 +798,40 @@ body.privacy-notification-visible {
     body.privacy-notification-visible {
         padding-top: calc(var(--header-height) + 120px);
     }
+    
     /* 正文部分 */
     .main-layout {
         grid-template-columns: 1fr;
     }
-    /* 页眉 */
 }
+
 @media (max-width: 600px) {
     /* 页眉栏 */
     .nav-links {
         display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .privacy-notification-actions {
+        flex-wrap: wrap;
+    }
+    
+    .privacy-link {
+        order: 2;
+    }
+    
+    .privacy-agree {
+        order: 1;
+    }
+    
+    .privacy-close {
+        order: 3;
+    }
+    
+    /* 小屏幕进一步调整高度 */
+    body.privacy-notification-visible {
+        padding-top: calc(var(--header-height) + 140px);
     }
 }
 
@@ -1114,7 +1138,7 @@ body.privacy-notification-visible {
 
 .agree-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px极16px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
 .agree-button .material-symbols-rounded {
@@ -1124,5 +1148,3 @@ body.privacy-notification-visible {
 .dark-theme .agree-button {
     background: linear-gradient(135deg, #388E3C 0%, #1B5E20 100%);
 }
-
-

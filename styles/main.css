@@ -647,7 +647,7 @@ footer {
     right: 0;
     background: var(--surface-container-high);
     border-bottom: 1px solid var(--outline-variant);
-    z-index: 999;
+    z-index: 1001; /* 比页眉的1000更高 */
     transform: translateY(-100%);
     opacity: 0;
     transition: var(--transition);
@@ -766,6 +766,11 @@ footer {
     color: var(--on-surface);
 }
 
+/* 当显示隐私政策提示时，调整body的padding-top */
+body.privacy-notification-visible {
+    padding-top: calc(var(--header-height) + 80px);
+}
+
 /* 暗色主题适配 */
 .dark-theme .privacy-notification {
     background: var(--surface-container);
@@ -774,20 +779,7 @@ footer {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    /* 正文部分 */
-    .main-layout {
-        grid-template-columns: 1fr;
-    }
-    /* 页眉 */
-}
-@media (max-width: 600px) {
-    /* 页眉栏 */
-    .nav-links {
-        display: none;
-    }
-}
-@media (max-width: 768px) {
-    .privacy-notification-content {
+  .privacy-notification-content {
         flex-direction: column;
         align-items: flex-start;
         gap: var(--spacing-sm);
@@ -801,23 +793,21 @@ footer {
     .privacy-notification-text {
         text-align: left;
     }
+    
+    /* 移动端调整高度 */
+    body.privacy-notification-visible {
+        padding-top: calc(var(--header-height) + 120px);
+    }
+    /* 正文部分 */
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+    /* 页眉 */
 }
-
-@media (max-width: 480px) {
-    .privacy-notification-actions {
-        flex-wrap: wrap;
-    }
-    
-    .privacy-link {
-        order: 2;
-    }
-    
-    .privacy-agree {
-        order: 1;
-    }
-    
-    .privacy-close {
-        order: 3;
+@media (max-width: 600px) {
+    /* 页眉栏 */
+    .nav-links {
+        display: none;
     }
 }
 

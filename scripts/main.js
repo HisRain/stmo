@@ -388,7 +388,7 @@ function initPrivacyNotification() {
         // 显示隐私政策提示
         setTimeout(() => {
             privacyNotification.classList.add('show');
-            // 添加body类名以调整padding-top
+            // 添加body类名以调整布局
             document.body.classList.add('privacy-notification-visible');
         }, 1000);
     }
@@ -408,7 +408,7 @@ function initPrivacyNotification() {
     function hidePrivacyNotification() {
         privacyNotification.classList.remove('show');
         
-        // 移除body类名以恢复原始padding-top
+        // 移除body类名以恢复原始布局
         setTimeout(() => {
             document.body.classList.remove('privacy-notification-visible');
         }, 300);

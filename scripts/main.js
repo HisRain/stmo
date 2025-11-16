@@ -363,7 +363,11 @@ function customizeFirstVisitNotification() {
     }
 }
 
-// 隐私政策提示功能
+// ==================== 隐私政策功能 ====================
+
+/**
+ * 初始化隐私政策提示
+ */
 function initPrivacyNotification() {
     const privacyNotification = document.getElementById('privacyNotification');
     const privacyAgree = document.getElementById('privacyAgree');
@@ -415,6 +419,7 @@ function initPrivacyNotification() {
         }, 300);
     }
 }
+
 // ==================== 工具函数 ====================
 
 /**
@@ -472,11 +477,4 @@ if ('performance' in window) {
         
         // 可以在这里发送性能数据到分析服务
     });
-
 }
-
-
-
-
-
-

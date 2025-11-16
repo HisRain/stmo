@@ -43,6 +43,7 @@ function initPage() {
     initCategoryItems();
     initTags();
     initNotification();
+    initPrivacyNotification();
 }
 
 /**
@@ -383,8 +384,8 @@ function initPrivacyNotification() {
         // 显示隐私政策提示
         setTimeout(() => {
             privacyNotification.classList.add('show');
-            // 调整body的padding-top以避免内容被遮挡
-            document.body.style.paddingTop = `calc(var(--header-height) + ${privacyNotification.offsetHeight}px)`;
+            // 添加body类名以调整padding-top
+            document.body.classList.add('privacy-notification-visible');
         }, 1000);
     }
     
@@ -403,9 +404,9 @@ function initPrivacyNotification() {
     function hidePrivacyNotification() {
         privacyNotification.classList.remove('show');
         
-        // 恢复body的padding-top
+        // 移除body类名以恢复原始padding-top
         setTimeout(() => {
-            document.body.style.paddingTop = '';
+            document.body.classList.remove('privacy-notification-visible');
         }, 300);
         
         // 添加平滑消失动画
@@ -413,18 +414,6 @@ function initPrivacyNotification() {
             privacyNotification.style.display = 'none';
         }, 300);
     }
-}
-
-// 在DOM加载完成后初始化
-document.addEventListener('DOMContentLoaded', function() {
-    initPrivacyNotification();
-});
-
-// 如果DOM已经加载完成，直接初始化
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initPrivacyNotification);
-} else {
-    initPrivacyNotification();
 }
 // ==================== 工具函数 ====================
 
